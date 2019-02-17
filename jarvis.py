@@ -14,7 +14,7 @@ r = sr.Recognizer()
 def web():
     send = webbrowser.open('reddit.com')
 with sr.Microphone() as source:
-    while(1):import speech_recognition as sr
+    while(1):
 import time
 import os
 import random
