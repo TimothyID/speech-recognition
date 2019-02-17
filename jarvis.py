@@ -23,13 +23,16 @@ with sr.Microphone() as source:
             os.system("espeak 'Bye Bye!'")
             sys.exit()
         if text == 'joke':
-            print(random.choice(jokes))
-            os.system("espeak 'Bye Bye!'")
+            randJoke = random.choice(jokes)
+            print(randJoke)
+            os.system("espeak '{}'".format(randJoke))
         if text == 'time':
-            print(datetime.datetime.now().time())
-            os.system("espeak 'Bye Bye!'")
+            time = datetime.datetime.now().time()
+            print(time)
+            os.system("espeak '{}'".format(time))
         if text == 'date':
-            print(datetime.datetime.now().date())
-            os.system("espeak 'Bye Bye!'")
+            date = datetime.datetime.now().date()
+            print(date)
+            os.system("espeak '{}'".format(date))
         print('Done!')
         time.sleep(2)
