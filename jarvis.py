@@ -22,17 +22,21 @@ with sr.Microphone() as source:
         if text == 'exit' or text == 'stop':
             os.system("espeak 'Bye Bye!'")
             sys.exit()
+            os.system('clear')
         if text == 'joke':
             randJoke = random.choice(jokes)
             print(randJoke)
             os.system("espeak '{}'".format(randJoke))
+            os.system('clear')
         if text == 'time':
             time = datetime.datetime.now().time()
             print(time)
-            os.system("espeak '{}'".format(time))
+            os.system("espeak '{}'".format(time)
+            os.system('clear')
         if text == 'date':
             date = datetime.datetime.now().date()
             print(date)
             os.system("espeak '{}'".format(date))
+            os.system('clear')
         print('Done!')
         time.sleep(2)
