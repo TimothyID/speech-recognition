@@ -1,5 +1,3 @@
-#1).  make calculator
-
 from tkinter import *
 import speech_recognition as sr
 import time
