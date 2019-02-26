@@ -1,3 +1,5 @@
+#1).  make calculator
+
 from tkinter import *
 import speech_recognition as sr
 import time
@@ -14,7 +16,9 @@ jokes = ["Did you hear about the restaurant on the moon? Great food, no atmosphe
 
 headsTails = ['Heads', 'Tails']
 
-h
+helloo = ['hi', 'long time no see', 'my regards to you']
+
+how_are_you = ['Good','im fine','im well, how are you']
 
 r = sr.Recognizer()
 
@@ -28,7 +32,12 @@ def button_clicked():
         audio = r.listen(source)
         text = r.recognize_google(audio)
         print(text)
-        if text == 'help':
+        if text == 'hello' or 'hi':
+            hello = random.choice(helloo)
+            os.system("espeak '{}'".format(hello))
+        elif 'stupid' in text:
+            stupid = 'allahu akbar'
+        elif text == 'help':
             help = 'Commands, joke, date, time, exit'
             os.system("espeak '{}'".format(help))
         elif text == 'exit':
@@ -66,7 +75,7 @@ def button_clicked():
             opr = 'Opening ' + sub
             os.system("espeak '{}'".format(opr))
             webbrowser.get('firefox').open(url)
-        elif text == 'f*** you':
+        elif 'f***' in text:
             fuck = 'fuck you'
             os.system("espeak '{}'".format(fuck))
             root.destroy()
@@ -85,25 +94,12 @@ def button_clicked():
             mad = 'Opening the clip mad city'
             os.system("espeak '{}'".format(mad))
             webbrowser.get('firefox').open(url)
-        elif text == 'jokes' or 'tell me a joke':
-            randJoke = random.choice(jokes)
-            os.system("espeak '{}'".format(randJoke))
-        elif text == 'hello':
-            hello = random.choice(helloo)
-            os.system("espeak '{}'".format(hello))
+
+
 
 root.geometry('500x600')
 
-C = Canvas(root, bg="blue", height=250, width=300)
-filename = PhotoImage(file = "syava.png")
-background_label = Label(top, image=filename)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
-
 button1 = Button(root, bg='blue', text='Speak!', command=button_clicked, height=2, width=25)
 button1.place(x='140', y='270')
-
-mixer.init()
-mixer.music.load('syavapro.mp3')
-mixer.music.play()
 
 root.mainloop()
